@@ -1,0 +1,45 @@
+<div xmlns:th = "http://www.thymeleaf.org">
+<nav class="navbar navbar-inverse" style="font-variant: small-caps;">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li><a th:href="@{/}" th:text="#{nav.home}">Home</a></li>
+        <th:block th:if="${#request.remoteUser}">
+          <li><a th:href="@{/security/logoff}" th:text="#{nav.logout}">Sign Out</a></li>
+          <li><a th:href="@{/order/list}" th:text="#{nav.order}">Your Orders</a></li>
+          <li th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
+            <a th:href="@{/admin/home/index}" th:text="#{nav.admin}">Administration</a>
+          </li>
+          <li>
+            <button type="button" th:text="#{nav.account}" class="btn btn-default dropdown-toggle " style="margin-top: 8px;" data-toggle="dropdown">
+              Tai Khoản<span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="/account/doimk" th:text="#{nav.doimk}">doi Mk</a></li>
+              <li><a href="/account/getUser" th:text="#{nav.editaccount}">Cap nhat thong tin</a></li>
+            </ul>
+          </li>
+        </th:block>
+        <th:block th:unless="${#request.remoteUser}">
+          <li><a th:href="@{/security/login/form}" th:text="#{nav.login}">Sign In</a></li>
+          <li><a th:href="@{/account/form}" th:text="#{nav.regi}">ĐĂNG KÍ</a></li>
+        </th:block>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="?lang=vi" th:text="#{nav.vi}">Tieng Viet</a></li>
+		<li><a href="?lang=en" th:text="#{nav.en}">English</a></li>
+    </ul>
+      <ul th:if="${#request.remoteUser}" class="nav navbar-nav navbar-right">
+        <li><a href="#" > <i th:text="#{nav.welcom}"></i> [[${#request.remoteUser}]]</a></li>
+    </ul>
+    </div>
+  </nav>
+</div>
+
+
+<!-- 
+  
+  
+  
+ 
+</ul>
+ -->

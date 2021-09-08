@@ -1,0 +1,31 @@
+<div
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{/layout/index :: dynamic(~{:: main})}"
+>
+  <main>
+      <div class="panel panel-primary col-sm-8 col-sm-offset-2">
+        <div class="panel-heading">SHOPPING CART LOGIN</div>
+
+        <div class="panel-body">
+          <div class="form-group">
+            <div>Username:</div>
+            <input ng-model="form.username" readonly class="form-control" />
+          </div>
+
+          <div class="form-group">
+              <div>Password:</div>
+              <input type="password" ng-model="form.password" class="form-control">
+          </div>
+          <input ng-model="form.fullname" type="text" hidden>
+          <input type="text" ng-model="form.email" hidden>
+          <input type="text" ng-model="form.photo" hidden>
+
+        </div>
+
+        <div class="panel-footer text-right">
+            <button class="btn btn-success" ng-click="update()">Login</button>
+        </div>
+
+      </div>
+  </main>
+</div>

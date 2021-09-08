@@ -1,0 +1,25 @@
+<div xmlns:th="http://www.thymeleaf.org">
+	<div class="panel panel-primary">
+		<div class=" panel-body text-center">
+			<i class="glyphicon glyphicon-shopping-cart"
+				style="font-size: 25px;"></i> <a
+				th:href="@{/cart/view}">{{cart.count}} items x ${{cart.amount |
+				number:2}}</a>
+		</div>
+	</div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-body text-center">
+    <form action="/product/list" method="post">
+      <b>Tim Kiem SP</b>
+      <input type="text" name="sp" class="form-control" />
+      <button
+        type="submit"
+        class="btn btn-default"
+        style="margin-left: 190px; margin-top: 5px"
+      >
+        <i class="glyphicon glyphicon-search"></i>
+      </button>
+    </form>
+  </div>
+</div>
